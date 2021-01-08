@@ -13,6 +13,8 @@ interface PlaylistService {
 
     void delete(Serializable id)
 
-    Playlist save(String name, Song song)
+    //Playlist save(String name, Song song)
+
+    Playlist save(Playlist playlist)
 
 }

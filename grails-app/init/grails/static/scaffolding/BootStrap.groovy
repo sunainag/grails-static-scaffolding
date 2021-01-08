@@ -5,17 +5,17 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class BootStrap {
 
-	SongService songService
-	PlaylistService playlistService
-
     def init = { servletContext ->
 
-    	Song testSong1 = songService.save('song1')
-    	Song testSong2 = songService.save('song2')
-    	Song testSong3 = songService.save('song3')
-    	playlistService.save("playlist1", testSong1).save()
-    	playlistService.save("playlist1", testSong2).save()
-    	playlistService.save("playlist1", testSong3).save()
+    	def testSong1 = new Song(title:"Kabhi Kabhi");
+    	testSong1.save();
+
+  //   	def song1 = Song.get(1)
+		// assert 1 == song1.id
+
+    	def music = new Playlist(name:"playlist1")
+    	music.addToSongs(testSong1)
+    	music.save()
 
     }
     def destroy = {
